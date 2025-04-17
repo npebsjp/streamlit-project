@@ -9,11 +9,14 @@ import os
 # Change relative path to be more deployment-friendly
 # Consider using an absolute path or placing the model in the same directory
 model_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
-                        "EDA", "ligthGBM_algorithm_regressor_default_42.sav")
+                        "models", "ligthGBM_algorithm_regressor_default_42.sav")
 model = pickle.load(open(model_path, "rb"))
 
-model = pickle.load(open("../EDA/ligthGBM_algorithm_regressor_default_42.sav", "rb"))
+model = pickle.load(open("/..models/ligthGBM_algorithm_regressor_default_42.sav", "rb"))
 
+print("Current working directory:", os.getcwd())
+print("Does EDA folder exist?", os.path.exists("EDA"))
+print("Files in current directory:", os.listdir("."))
 # Fixed dictionary formatting
 class_dict = {
     "0": "ZipCode",
